@@ -1,0 +1,73 @@
+///////////////////////////////////////
+// GRID SETTINGS                     //
+///////////////////////////////////////
+
+$visual-grid: true
+$visual-grid-color: yellow
+$visual-grid-index: front
+$visual-grid-opacity: 0.3
+
+///////////////////////////////////////
+// GEM IMPORTS                       //
+///////////////////////////////////////
+
+@import "bourbon"
+@import "clear"
+@import "neat"
+
+
+///////////////////////////////////////
+// MIX INS AND VARIABLES             //
+///////////////////////////////////////
+
+
+///////////////////////////////////////
+// ELEMENT STYLES                    //
+///////////////////////////////////////
+
+div
+  +transition (all .3s ease-in)
+
+.container
+  @include outer-container
+
+
+.entry
+  @include span-columns(4)
+  height: 300px
+  background-color: #c0c0c0
+  margin-top: 1.5em
+
+.content-column
+  @include span-columns(8)
+  @include omega
+  height: 300px
+  background-color: #c0c0c0
+  margin-top: 1.5em
+
+// @ MEDIA: DESKTOP (MIN: 768px) //
+
+@media screen and (min-width: 768px)
+  .entry
+    @include omega ('3n + 3' block)
+
+
+
+// @ MEDIA: TABLET (MAX: 768px) //
+
+@media screen and (max-width: 768px)
+  .entry
+    @include span-columns(6)
+    @include omega ('2n + 2' block)
+
+  .content-column
+    @include span-columns(12)
+
+// @ MEDIA: MOBILE (MAX: 480px) //
+
+@media screen and (max-width: 480px)
+  .entry
+    @include span-columns(12)
+
+  .content-column
+    @include span-columns(12)
